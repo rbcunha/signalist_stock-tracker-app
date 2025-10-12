@@ -23,7 +23,7 @@ const UserDropdown = () => {
 
   const handleSignOut = async () => {
     // await signOut
-    router.push("/Sign-in");
+    router.push("/sign-in");
   }
 
   const user = {name: 'John', email: 'johndoe@jsmastery.com'};
