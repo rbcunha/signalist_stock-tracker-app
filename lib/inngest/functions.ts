@@ -65,7 +65,7 @@ export const sendDailyNewsSummary = inngest.createFunction(
           const symbols = await getWatchlistSymbolsByEmail(user.email);
           let articles = await getNews(symbols);
           // Enforce max 6 articles per user
-          articles = (articles || [].slice(0, 6));
+          articles = (articles || []).slice(0, 6);
           // if still empty, fallback to general
           if (!articles || articles.length === 0) {
             articles = await getNews();
@@ -81,7 +81,7 @@ export const sendDailyNewsSummary = inngest.createFunction(
     })
 
     // Step #3: Summarize news via AI for each user
-    const userNewsSummaries: { user: User; newsContent: string | null }[] = [];
+    const userNewsSummaries: { user: UserForNewsEmail; newsContent: string | null }[] = [];
 
     for (const {user, articles} of results) {
       try {
