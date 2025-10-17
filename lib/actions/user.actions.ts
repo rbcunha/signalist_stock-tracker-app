@@ -1,6 +1,7 @@
+'use server'
+
 import {connectToDatabase} from "@/database/mongoose";
 
-' user server'
 
 export const getAllUsersForNewsEmail = async () => {
   try {
