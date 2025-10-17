@@ -7,7 +7,7 @@ export interface WatchlistItem extends Document {
   addedAt: Date;
 }
 
-const watchlistSchema = new Schema<WatchlistItem>(
+const WatchlistSchema = new Schema<WatchlistItem>(
   {
   userId: { type: String, required: true, index: true },
   symbol: { type: String, required: true, uppercase: true, trim: true },
@@ -18,7 +18,7 @@ const watchlistSchema = new Schema<WatchlistItem>(
 );
 
 // Prevent duplicate symbols per user
-watchlistSchema.index({ userId: 1, symbol: 1 }, { unique: true });
+WatchlistSchema.index({ userId: 1, symbol: 1 }, { unique: true });
 
 export const Watchlist: Model<WatchlistItem> =
-  (models?.Watchlist as Model<WatchlistItem>) || model<WatchlistItem>("Watchlist", watchlistSchema);
+  (models?.Watchlist as Model<WatchlistItem>) || model<WatchlistItem>("Watchlist", WatchlistSchema);
