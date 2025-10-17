@@ -2,6 +2,18 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Render an input element with preconfigured styling and forwarded props.
+ *
+ * The component applies a set of base utility classes, sets `data-slot="input"`,
+ * merges any `className` provided with its base classes, and forwards all other
+ * input attributes and event handlers to the underlying element.
+ *
+ * @param className - Additional class names to append to the component's base styles
+ * @param type - The input `type` attribute (e.g., "text", "password", "email")
+ * @param props - Other standard input attributes and event handlers to spread onto the element
+ * @returns The rendered input element with merged classes, `data-slot="input"`, and all provided props
+ */
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
   return (
     <input

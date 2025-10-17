@@ -6,24 +6,48 @@ import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Renders a Radix Select root element with a `data-slot="select"` attribute.
+ *
+ * @returns The SelectPrimitive.Root element configured with `data-slot="select"` and any provided props
+ */
 function Select({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Root>) {
   return <SelectPrimitive.Root data-slot="select" {...props} />
 }
 
+/**
+ * Renders a grouping container for related select items.
+ *
+ * @returns A SelectPrimitive.Group element with the `data-slot="select-group"` attribute and the provided props applied.
+ */
 function SelectGroup({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Group>) {
   return <SelectPrimitive.Group data-slot="select-group" {...props} />
 }
 
+/**
+ * Displays the currently selected value inside a Select.
+ *
+ * @param props - Props forwarded to the underlying select value element.
+ * @returns The select value element that renders the selected item's content.
+ */
 function SelectValue({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Value>) {
   return <SelectPrimitive.Value data-slot="select-value" {...props} />
 }
 
+/**
+ * Renders the select trigger button with configurable size and custom classes.
+ *
+ * @param className - Additional CSS classes to apply to the trigger container.
+ * @param size - Visual size variant; `"default"` yields a taller trigger, `"sm"` yields a slightly smaller one.
+ * @param children - Content shown inside the trigger (typically the selected value).
+ * @returns The select trigger element.
+ */
 function SelectTrigger({
   className,
   size = "default",
@@ -50,6 +74,13 @@ function SelectTrigger({
   )
 }
 
+/**
+ * Renders the Select dropdown content inside a Portal, including scroll buttons and a viewport.
+ *
+ * @param position - Placement strategy for the content; when `"popper"`, the content is positioned relative to the trigger.
+ * @param align - Horizontal alignment of the content relative to the trigger (for example `"center"`, `"start"`, or `"end"`).
+ * @returns The rendered Select content element containing the viewport and scroll controls.
+ */
 function SelectContent({
   className,
   children,
@@ -87,6 +118,11 @@ function SelectContent({
   )
 }
 
+/**
+ * Renders the label element used by the Select component with standardized styling.
+ *
+ * @returns A Select label element with data-slot="select-label" and combined default and user-provided classes.
+ */
 function SelectLabel({
   className,
   ...props
@@ -100,6 +136,13 @@ function SelectLabel({
   )
 }
 
+/**
+ * Renders a selectable item for the Select menu with a right-aligned check indicator.
+ *
+ * The item's children are used as the visible label; all props are forwarded to the underlying item element.
+ *
+ * @returns The rendered Select item element containing an item indicator and the provided label
+ */
 function SelectItem({
   className,
   children,
@@ -124,6 +167,11 @@ function SelectItem({
   )
 }
 
+/**
+ * Renders a thin, styled horizontal separator for grouping select items.
+ *
+ * @returns The separator element to place between select groups.
+ */
 function SelectSeparator({
   className,
   ...props
@@ -137,6 +185,12 @@ function SelectSeparator({
   )
 }
 
+/**
+ * Renders a styled scroll-up control for a select dropdown.
+ *
+ * @param className - Additional CSS classes to apply to the button container
+ * @returns The scroll-up button element used inside the select content
+ */
 function SelectScrollUpButton({
   className,
   ...props
@@ -155,6 +209,11 @@ function SelectScrollUpButton({
   )
 }
 
+/**
+ * Renders a styled scroll-down button for a Select dropdown.
+ *
+ * @returns A React element representing the select scroll-down button
+ */
 function SelectScrollDownButton({
   className,
   ...props
